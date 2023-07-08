@@ -24,6 +24,7 @@ const useHomeCards = () => {
       id: new Date().getTime(),
       value1: "",
       value2: "",
+      value3:""
     };
     setArticleInputFields([...articleInputFields, newField]);
   };

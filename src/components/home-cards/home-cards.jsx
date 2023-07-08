@@ -71,7 +71,9 @@ const HomeSlices = () => {
             </span>
           </div>
         </div>
+      </div>
 
+      <div>
         <button className="bg-gray-300 hover:bg-gray-400 text-[#6F6E77] font-bold py-2 px-4 rounded inline-flex items-center m-4 "
           onClick={handleSubmit}>
           Submit
@@ -167,7 +169,7 @@ const HomeSlices = () => {
                       )}
                     <input
                       type="text"
-                      className="border w-full rounded-lg h-9 px-2 focus:outline-0"
+                      className="border w-full rounded-lg h-9 mb-2 px-2 focus:outline-0"
                       placeholder="Artile Keywords"
                       value={field.value2}
                       onChange={(e) =>
@@ -178,6 +180,16 @@ const HomeSlices = () => {
                         )
                       }
                     />
+
+                    <input type="color"
+                      value={field.value3}
+                      onChange={(e) =>
+                        handleArticleInputChange(
+                          field.id,
+                          "value3",
+                          e.target.value
+                        )
+                      } />
                     {errorsArticleSlice[index] &&
                       errorsArticleSlice[index].value2 && (
                         <p>{errorsArticleSlice[index].value2}</p>
