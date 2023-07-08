@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useHomeCards from "./useHomeCards";
 
 const HomeSlices = () => {
@@ -25,12 +25,12 @@ const HomeSlices = () => {
     <>
       <div className="flex flex-wrap">
         <div className="w-full md:w-1/2 lg:w-1/3 p-4">
-          <div className="border p-5 rounded-xl">
+          <div className="border p-5 rounded-xl hover:-translate-y-1 hover:scale-105">
             <div
               onClick={addHeroFields}
               className="bg-[#F5F2FF] hover:bg-[#EDE9FE] text-white h-36 flex items-center justify-center rounded-xl cursor-pointer"
             >
-              <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-[#AA99EC] hover:bg-[#6E56CF]  text-white">
+              <div className="w-8 h-8 font-bold mr-3 inline-flex items-center justify-center rounded-full bg-[#AA99EC] hover:bg-[#6E56CF]  text-white">
                 +
               </div>
             </div>
@@ -41,7 +41,7 @@ const HomeSlices = () => {
         </div>
 
         <div className="w-full md:w-1/2 lg:w-1/3 p-4">
-          <div className="border p-5 rounded-xl">
+          <div className="border p-5 rounded-xl hover:-translate-y-1 hover:scale-105">
             <div
               onClick={addArticleFields}
               className="bg-[#E9F9EE] hover:bg-[#DDF3E4] text-white h-36 flex items-center justify-center rounded-xl cursor-pointer"
@@ -57,7 +57,7 @@ const HomeSlices = () => {
         </div>
 
         <div className="w-full md:w-1/2 lg:w-1/3 p-4">
-          <div className="border p-5 rounded-xl">
+          <div className="border p-5 rounded-xl hover:-translate-y-1 hover:scale-105">
             <div
               onClick={addPriceFields}
               className="bg-[#FFF4D5] hover:bg-[#FFECBC] text-white h-36 flex items-center justify-center rounded-xl cursor-pointer"
@@ -72,7 +72,10 @@ const HomeSlices = () => {
           </div>
         </div>
 
-        <button onClick={handleSubmit}>Submit</button>
+        <button className="bg-gray-300 hover:bg-gray-400 text-[#6F6E77] font-bold py-2 px-4 rounded inline-flex items-center m-4 "
+          onClick={handleSubmit}>
+          Submit
+        </button>
       </div>
 
       <div className="flex flex-wrap ">
@@ -81,8 +84,8 @@ const HomeSlices = () => {
             <div className="border p-5 rounded-xl">
               {heroInputFields?.map((field, index) => (
                 <div key={field.id} className="mt-2">
-                  <div className="flex justify-between pb-2">
-                    <h2 className="text-sm font-bold">Hero slice</h2>
+                  <div className="flex justify-between pb-2 items-center">
+                    <h2 className="text-sm font-bold text-[#1A1523]">Hero slice</h2>
                     <button
                       className="bg-[#FFF0EE] rounded px-4 py-1"
                       onClick={() => removeField(field.id)}
@@ -94,9 +97,9 @@ const HomeSlices = () => {
                   </div>
                   <div>
                     <input
-                      className="border w-full mb-2 rounded"
+                      className="border w-full mb-2 rounded-lg h-9 px-2 focus:outline-0"
                       type="text"
-                      placeholder="Input field 1"
+                      placeholder="Full Name"
                       value={field.value1}
                       onChange={(e) =>
                         handleInputChange(field.id, "value1", e.target.value)
@@ -108,8 +111,8 @@ const HomeSlices = () => {
                       )}
                     <input
                       type="text"
-                      className="border w-full rounded"
-                      placeholder="Input field 2"
+                      className="border w-full rounded-lg h-9 px-2 focus:outline-0"
+                      placeholder="Email"
                       value={field.value2}
                       onChange={(e) =>
                         handleInputChange(field.id, "value2", e.target.value)
@@ -133,8 +136,8 @@ const HomeSlices = () => {
             <div className="border p-5 rounded-xl">
               {articleInputFields?.map((field, index) => (
                 <div key={field.id} className="mt-2">
-                  <div className="flex justify-between pb-2">
-                    <h2 className="text-sm font-bold">Article slice</h2>
+                  <div className="flex justify-between pb-2 items-center">
+                    <h2 className="text-sm font-bold text-[#1A1523]">Article slice</h2>
                     <button
                       className="bg-[#FFF0EE] rounded px-4 py-1"
                       onClick={() => removeArticleField(field.id)}
@@ -146,9 +149,9 @@ const HomeSlices = () => {
                   </div>
                   <div>
                     <input
-                      className="border w-full mb-2 rounded"
+                      className="border w-full mb-2 rounded-lg h-9 px-2 focus:outline-0"
                       type="text"
-                      placeholder="Input field 1"
+                      placeholder="Article Title"
                       value={field.value1}
                       onChange={(e) =>
                         handleArticleInputChange(
@@ -164,8 +167,8 @@ const HomeSlices = () => {
                       )}
                     <input
                       type="text"
-                      className="border w-full rounded"
-                      placeholder="Input field 2"
+                      className="border w-full rounded-lg h-9 px-2 focus:outline-0"
+                      placeholder="Artile Keywords"
                       value={field.value2}
                       onChange={(e) =>
                         handleArticleInputChange(
@@ -192,8 +195,8 @@ const HomeSlices = () => {
             <div className="border p-5 rounded-xl">
               {priceInputFields?.map((field, index) => (
                 <div key={field.id} className="mt-2">
-                  <div className="flex justify-between pb-2">
-                    <h2 className="text-sm font-bold">Price slice</h2>
+                  <div className="flex justify-between pb-2 items-center">
+                    <h2 className="text-sm font-bold text-[#1A1523]">Price slice</h2>
                     <button
                       className="bg-[#FFF0EE] rounded px-4 py-1"
                       onClick={() => removePriceField(field.id)}
@@ -205,9 +208,9 @@ const HomeSlices = () => {
                   </div>
                   <div>
                     <input
-                      className="border w-full mb-2 rounded"
+                      className="border w-full mb-2 rounded-lg h-9 px-2 focus:outline-0"
                       type="text"
-                      placeholder="Input field 1"
+                      placeholder="First price"
                       value={field.value1}
                       onChange={(e) =>
                         handlePriceInputChange(
@@ -223,8 +226,8 @@ const HomeSlices = () => {
                       )}
                     <input
                       type="text"
-                      className="border w-full rounded"
-                      placeholder="Input field 2"
+                      className="border w-full rounded-lg h-9 px-2 focus:outline-0"
+                      placeholder="Second price"
                       value={field.value2}
                       onChange={(e) =>
                         handlePriceInputChange(
